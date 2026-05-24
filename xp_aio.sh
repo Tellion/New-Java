@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o pipefail
 
-#by GuruzGH
+#by NEWDEVS
 clear
 
 # Initializing Server
@@ -69,7 +69,7 @@ WsPort='10080'
 MainPort='666' 
 
 # SSH SlowDNS
-read -p "Enter SlowDNS Nameserver (or press enter for default): " -e -i "ns-dl.guruzgh.ovh" Nameserver
+read -p "Enter SlowDNS Nameserver (or press enter for default): " -e -i "ns-us.newdevs.uk" Nameserver
 Serverkey='819d82813183e4be3ca1ad74387e47c0c993b81c601b2d1473a3f47731c404ae'
 Serverpub='7fbd1f8aa0abfe15a7903e837f78aba39cf61d36f183bd604daa2fe4ef3b7b59'
 
@@ -183,7 +183,7 @@ ln -fs /usr/share/zoneinfo/$MyVPS_Time /etc/localtime
 
 cat > /root/.profile <<'EOF_PROFILE'
 clear
-echo "Script By Guruz GH"
+echo "Script By NewDevs"
 echo "Type 'menu' To List Commands"
 EOF_PROFILE
 
@@ -276,13 +276,13 @@ chown root:root /etc/stunnel/stunnel.pem
 
 # Banner
 cat <<'deekay77' > /etc/zorro-luffy
-<br><font color="#C12267">GURUZGH | VPN | SERVICE<br></font><br>
+<br><font color="#C12267">NewDevs | VPN | SERVICE<br></font><br>
 <font color="#b3b300"> x No DDOS<br></font>
 <font color="#00cc00"> x No Torrent<br></font>
 <font color="#ff1aff"> x No Spamming<br></font>
 <font color="blue"> x No Phishing<br></font>
 <font color="#A810FF"> x No Hacking<br></font><br>
-<font color="red">• BROUGHT TO YOU BY <br></font><font color="#00cccc">https://t.me/guruzfreenet !<br></font>
+<font color="red">• BROUGHT TO YOU BY <br></font><font color="#00cccc">https://t.me/newdevs_foru !<br></font>
 deekay77
 
 # OpenSSH
@@ -1251,7 +1251,7 @@ add_hysteria() {
     echo -e " ${BOLD}Domain:${NC}      ${YELLOW}${DOMAIN:-$(server_ip)}${NC}"
     echo -e " ${BOLD}Port Range:${NC}  ${YELLOW}20000-50000 (-> 36712)${NC}"
     echo -e " ${BOLD}User (Pass):${NC} ${YELLOW}${new_pass}${NC}"
-    echo -e " ${BOLD}Obfs:${NC}        ${YELLOW}$(jq -r '.inbounds[0].obfs' "$HYST_CONFIG" 2>/dev/null || echo "GuruzScript")${NC}"
+    echo -e " ${BOLD}Obfs:${NC}        ${YELLOW}$(jq -r '.inbounds[0].obfs' "$HYST_CONFIG" 2>/dev/null || echo "NewDevsScript")${NC}"
     echo -e " ${BOLD}Expiry Date:${NC} ${YELLOW}${exp_date}${NC}"
     echo -e "${CYAN}--------------------------------------------------------------${NC}"
     pause_return
@@ -1369,7 +1369,7 @@ add_xray() {
   read -rp " Validity (Days): " masa
   exp=$(date -d "+${masa} days" +"%Y-%m-%d")
   uuid=$(cat /proc/sys/kernel/random/uuid)
-  pass="Guruz${uuid:0:6}"
+  pass="NewDevs${uuid:0:6}"
   
   if [ "$prot" == "1" ]; then
     jq ".inbounds[0].settings.clients += [{\"id\": \"$uuid\", \"email\": \"$user\"}]" /etc/xray/config.json > /tmp/x.json && mv /tmp/x.json /etc/xray/config.json
@@ -1698,7 +1698,7 @@ service_control_menu() {
 
 # --- Backup & Restore ---
 backup_snapshot() {
-  clear; local out="/root/guruzgh_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+  clear; local out="/root/newdevs_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
   echo -e "Packaging server configurations..."
   tar -czf "$out" /etc/ssh /etc/default/dropbear /etc/stunnel /etc/squid /etc/hysteria /etc/deekayvpn /etc/systemd/system/ws-proxy@.service /etc/xray 2>/dev/null
   echo -e "\n${GREEN}✔ Backup successfully created!${NC}\nLocation: ${YELLOW}$out${NC}"
@@ -1711,7 +1711,7 @@ restore_snapshot() {
   echo -e "                   ${BOLD}RESTORE CONFIGURATION${NC}"
   echo -e "${CYAN}══════════════════════════════════════════════════════════════${NC}"
   shopt -s nullglob
-  backups=(/root/guruzgh_backup_*.tar.gz)
+  backups=(/root/newdevs_backup_*.tar.gz)
   if [ ${#backups[@]} -eq 0 ]; then echo -e "${RED}  No backup files found in /root/.${NC}"; pause_return; return; fi
   echo -e "  Available Backups:\n"
   for i in "${!backups[@]}"; do printf "  [${YELLOW}%02d${NC}] %s\n" $((i+1)) "$(basename "${backups[$i]}")"; done
@@ -1872,7 +1872,7 @@ remove_script() {
   echo -e "                     ${BOLD}FULL UNINSTALL${NC}"
   echo -e "${RED}══════════════════════════════════════════════════════════════${NC}"
   echo -e "  This action will strip all custom VPN services, configurations,"
-  echo -e "  and scripts installed by Guruz GH from your server.\n"
+  echo -e "  and scripts installed by NewDevs from your server.\n"
   read -rp "  Are you absolutely sure? [y/N]: " ans
   if [[ "$ans" =~ ^[Yy]$ ]]; then
       echo -e "\nStopping services..."
@@ -1903,7 +1903,7 @@ draw_header() {
   local buf=$(buffer_mem)
 
   echo -e "${BLUE}══════════════════════════════════════════════════════════════${NC}"
-  echo -e "${BLUE}       >>>>>  🐉  ${YELLOW}${BOLD}NewDevs${NC}${BLUE}  ✸  ${YELLOW}${BOLD}Plus${NC}${BLUE}  🐉  <<<<<${NC}"
+  echo -e "${BLUE}       >>>>>  🐉  ${YELLOW}${BOLD}NewDevs GH${NC}${BLUE}  ✸  ${YELLOW}${BOLD}Plus${NC}${BLUE}  🐉  <<<<<${NC}"
   echo -e "${BLUE}══════════════════════════════════════════════════════════════${NC}"
   printf "  ${WHITE}%-5s${NC} ${YELLOW}%-17s${NC} ${WHITE}%-6s${NC} ${YELLOW}%-14s${NC} ${WHITE}%-7s${NC} ${YELLOW}%s${NC}\n" "OS:" "$os" "Arch:" "$arch" "Cores:" "$cores"
   printf "  ${WHITE}%-5s${NC} ${YELLOW}%-17s${NC} ${WHITE}%-6s${NC} ${YELLOW}%-14s${NC} ${WHITE}%-7s${NC} %s\n" "IP:" "$ip" "Time:" "$time" "Status:" "$status"
