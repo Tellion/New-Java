@@ -1973,7 +1973,7 @@ cp /usr/local/bin/menu /usr/bin/Menu
 # Finishing
 chown -R www-data:www-data /home/vps/public_html
 clear
-figlet GuruzGH Script -c | lolcat
+figlet NewDevs Script -c | lolcat
 echo "       Installation Complete! System need to reboot to apply all changes! "
 history -c; rm /root/full.sh 2>/dev/null || true
 echo "           Server will reboot in 10 seconds! "
